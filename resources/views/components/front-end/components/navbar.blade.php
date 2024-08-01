@@ -32,38 +32,10 @@
                 <li>
                   <a href="{{url('home-page')}}">Home</a>
                 </li>
-                <li class="has-dropdown">
-                  <a href="{{url('shop-page')}}"
-                    >Shop <i class="fa-solid fa-angle-down"></i
-                  ></a>
-                  <ul class="sub-menu">
-                    <li><a href="#">Combo Offer</a></li>
-                    <li>
-                      <a href="#">Hair Combo</a>
-                    </li>
-                    <li>
-                      <a href="#">Freshio Category</a>
-                    </li>
-                    <li>
-                      <a href="#">Acne Cure Product</a>
-                    </li>
-                    <li>
-                      <a href="#">Hair Care Product</a>
-                    </li>
-                    <li>
-                      <a href="#">Special Combo Offer</a>
-                    </li>
-                    <li>
-                      <a href="#">Health Related Product</a>
-                    </li>
-                    <li>
-                      <a href="#">Skin Brightening Combo</a>
-                    </li>
-                    <li>
-                      <a href="#">Skin Care Product</a>
-                    </li>
-                  </ul>
+                  <li>
+                  <a href="{{url('shop-page')}}">Shop</a>
                 </li>
+
                 <li class="has-dropdown has-dropdown-none">
                   <a href="#"
                     >Category <i class="fa-solid fa-angle-down"></i
@@ -88,7 +60,7 @@
                   <a href="{{url('about-page')}}">About</a>
                 </li>
                 <li>
-                  <a href="about.html">Contact</a>
+                  <a href="{{url('contact-page')}}">Contact</a>
                 </li>
 
                 <li><a href="contact.html">Blog</a></li>

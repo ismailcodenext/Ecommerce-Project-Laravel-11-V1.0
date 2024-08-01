@@ -13,4 +13,11 @@ class Categories extends Model
         'category_img',
         'user_id',
     ];
+
+    // Relationship with Products
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
 }

@@ -18,7 +18,26 @@ class Product extends Model
         'stock',
         'status',
         'img_url',
-        'user_id',
+        'category_id',
+        'brand_id',
+        'user_id'
     ];
+
+
+
+    // Relationship with Category
+    public function category()
+    {
+        return $this->belongsTo(Categories::class);
+    }
+
+    // Relationship with Brand
+    public function brand()
+    {
+        return $this->belongsTo(Brands::class);
+    }
+
+
+
 
 }

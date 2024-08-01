@@ -1,3 +1,14 @@
+<!-- Back to btn Start -->
+<div id="progress">
+    <span id="progress-value">
+      <svg width="15" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 13L13 2L2 13" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </span>
+</div>
+<!-- Back to btn End -->
+
+
     <!-- Footer Start -->
     <footer class="footer">
         <div class="footer-item">

@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         try {
             $user_id = Auth::id();
-            $ProductData = Product::get();
+            $ProductData = Product::with(['category', 'brand'])->get();  // Include related category and brand data
             return response()->json(['status' => 'success', 'ProductData' => $ProductData]);
         } catch (Exception $e) {
             return response()->json(['status' => 'fail', 'message' => $e->getMessage()]);
@@ -55,6 +55,8 @@ class ProductController extends Controller
                 'status' => $request->input('status'),
                 'description' => $request->input('description'),
                 'stock' => $request->input('stock'),
+                'category_id' => $request->input('category_id'),
+                'brand_id' => $request->input('brand_id'),
                 'user_id' => $user_id
             ]);
             return response()->json(['status' => 'success', 'message' => 'Product Create Successful']);
@@ -94,6 +96,8 @@ class ProductController extends Controller
             $ProductData_Update->description = $request->input('description');
             $ProductData_Update->stock = $request->input('stock');
             $ProductData_Update->status = $request->input('status');
+            $ProductData_Update->category_id = $request->input('category_id');
+            $ProductData_Update->brand_id = $request->input('brand_id');
 
             if ($request->hasFile('img')) {
                 $img = $request->file('img');
