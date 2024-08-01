@@ -12,6 +12,19 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <label class="form-label">Product Category<span class="text-danger">*</span></label>
+                                        <select class="form-select" id="ProductCategory" aria-label="Default select example">
+                                            <option value="none">Select Category</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Product Brand<span class="text-danger">*</span></label>
+                                        <select class="form-select" id="ProductBrand" aria-label="Default select example">
+                                            <option value="none">Select Brand</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
                                         <label class="form-label">Name <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control test_form_input" id="ProductName">
                                     </div>
@@ -77,6 +90,44 @@
 </div>
 
 <script>
+    ProductCategoryShow();
+    ProductBrandShow();
+
+
+
+    async function ProductCategoryShow() {
+        try {
+            let res = await axios.get("/api/product-category-list", HeaderToken());
+            let Categories = res.data.ProductCategoryData;
+            let optionsHtmlCategory = Categories.map(Categories => `<option value="${Categories.id}">${Categories.category_name}</option>`).join('');
+
+            // Add the "Select Category" option as the first option
+            optionsHtmlCategory = `<option value="none" selected>Select Category</option>` + optionsHtmlCategory;
+
+            $("#ProductCategory").html(optionsHtmlCategory);
+
+        } catch (error) {
+            console.error("Error occurred while fetching sessions:", error);
+        }
+    }
+
+    async function ProductBrandShow() {
+        try {
+            let res = await axios.get("/api/brand-list", HeaderToken());
+            let Brands = res.data.BrandData;
+            let optionsHtmlBrand = Brands.map(Brands => `<option value="${Brands.id}">${Brands.brand_name}</option>`).join('');
+
+            // Add the "Select Brand" option as the first option
+            optionsHtmlBrand = `<option value="none" selected>Select Brand</option>` + optionsHtmlBrand;
+
+            $("#ProductBrand").html(optionsHtmlBrand);
+
+        } catch (error) {
+            console.error("Error occurred while fetching Brand:", error);
+        }
+    }
+
+
     async function Save() {
         try {
             let ProductName = document.getElementById('ProductName').value;
@@ -86,11 +137,21 @@
             let Stock = document.getElementById('Stock').value;
             let Status = document.getElementById('Status').value;
             let ProductDescription = document.getElementById('ProductDescription').value;
+            let ProductCategory = document.getElementById('ProductCategory').value;
+            let ProductBrand = document.getElementById('ProductBrand').value;
             let imgInput = document.getElementById('ProductImage');
             let imgFile = imgInput.files[0];
 
             if (ProductName.length === 0) {
                 errorToast("Product Name Required !");
+            }
+
+            else if (ProductCategory.length === 0) {
+                errorToast("Product Category Required !");
+            }
+
+            else if (ProductBrand.length === 0) {
+                errorToast("Product Brand Required !");
             }
 
             else if (BDPrice.length === 0) {
@@ -132,6 +193,8 @@
                 formData.append('stock', Stock);
                 formData.append('status', Status);
                 formData.append('description', ProductDescription);
+                formData.append('category_id', ProductCategory);
+                formData.append('brand_id', ProductBrand);
                 formData.append('img', imgFile);
 
                 const config = {
@@ -158,3 +221,5 @@
         }
     }
 </script>
+
+

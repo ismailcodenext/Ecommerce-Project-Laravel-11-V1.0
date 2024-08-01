@@ -12,6 +12,19 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <label class="form-label">Product Category<span class="text-danger">*</span></label>
+                                        <select class="form-select" id="UpdateProductCategory" aria-label="Default select example">
+                                            <option value="none">Select Category</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Product Brand<span class="text-danger">*</span></label>
+                                        <select class="form-select" id="UpdateProductBrand" aria-label="Default select example">
+                                            <option value="none">Select Brand</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
                                         <label class="form-label">Name <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control test_form_input" id="UpdateProductName">
                                     </div>
@@ -84,6 +97,49 @@
 </div>
 
 <script>
+
+    ProductCategoryShow();
+    ProductBrandShow();
+
+
+
+    async function ProductCategoryShow() {
+        try {
+            let res = await axios.get("/api/product-category-list", HeaderToken());
+            let Categories = res.data.ProductCategoryData;
+            let optionsHtmlCategory = Categories.map(Categories => `<option value="${Categories.id}">${Categories.category_name}</option>`).join('');
+
+            // Add the "Select Category" option as the first option
+            optionsHtmlCategory = `<option value="none" selected>Select Category</option>` + optionsHtmlCategory;
+
+            $("#UpdateProductCategory").html(optionsHtmlCategory);
+
+        } catch (error) {
+            console.error("Error occurred while fetching sessions:", error);
+        }
+    }
+
+    async function ProductBrandShow() {
+        try {
+            let res = await axios.get("/api/brand-list", HeaderToken());
+            let Brands = res.data.BrandData;
+            let optionsHtmlBrand = Brands.map(Brands => `<option value="${Brands.id}">${Brands.brand_name}</option>`).join('');
+
+            // Add the "Select Brand" option as the first option
+            optionsHtmlBrand = `<option value="none" selected>Select Brand</option>` + optionsHtmlBrand;
+
+            $("#UpdateProductBrand").html(optionsHtmlBrand);
+
+        } catch (error) {
+            console.error("Error occurred while fetching Brand:", error);
+        }
+    }
+
+
+
+
+
+
     async function updatePreview(input, imageUrl) {
         const oldImg = document.getElementById('oldImg');
 
@@ -105,6 +161,8 @@
             hideLoader();
 
             let data = res.data.rows;
+            document.getElementById('UpdateProductCategory').value = data.category_id;
+            document.getElementById('UpdateProductBrand').value = data.brand_id;
             document.getElementById('UpdateProductName').value = data.product_name;
             document.getElementById('UpdateBDPrice').value = data.bd_price;
             document.getElementById('UpdateUSDPrice').value = data.usd_price;
@@ -122,6 +180,8 @@
 
     async function Update() {
         try {
+            let UpdateProductCategory = document.getElementById('UpdateProductCategory').value;
+            let UpdateProductBrand = document.getElementById('UpdateProductBrand').value;
             let UpdateProductName = document.getElementById('UpdateProductName').value;
             let UpdateBDPrice = document.getElementById('UpdateBDPrice').value;
             let UpdateUSDPrice = document.getElementById('UpdateUSDPrice').value;
@@ -140,6 +200,8 @@
             document.getElementById('update-modal-close').click();
 
             let formData = new FormData();
+            formData.append('category_id', UpdateProductCategory);
+            formData.append('brand_id', UpdateProductBrand);
             formData.append('product_name', UpdateProductName);
             formData.append('bd_price', UpdateBDPrice);
             formData.append('usd_price', UpdateUSDPrice);

@@ -51,6 +51,7 @@
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
 
 
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
@@ -272,6 +273,36 @@
 
 
     </script>
+
+    <script>
+        async function userlogout() {
+
+            try {
+                let res = await axios.get("/ayurveda-logout-page", HeaderToken());
+                localStorage.clear();
+                sessionStorage.clear();
+                window.location.href = "/ayurvea-login-page";
+            } catch (e) {
+                errorToast(res.data['message']);
+            }
+        }
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Initialize select2 with placeholder
+            $('.js-example-basic-single').select2({
+                placeholder: 'Select an option'
+            });
+
+            // Set background color to green
+            $('.select2-dropdown').css('background-color', 'green');
+        });
+    </script>
+
+
     <script>
         $('#ExpensesNote').summernote({
             placeholder: 'Content',
@@ -287,17 +318,8 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function () {
-            // Initialize select2 with placeholder
-            $('.js-example-basic-single').select2({
-                placeholder: 'Select an option'
-            });
 
-            // Set background color to green
-            $('.select2-dropdown').css('background-color', 'green');
-        });
-    </script>
+
 
     {{-- user permission work start--}}
 

@@ -18,16 +18,17 @@ Route::view('/', 'components.front-end.home-page');
 Route::view('home-page', 'components.front-end.home-page');
 Route::view('about-page', 'components.front-end.about-page');
 Route::view('shop-page', 'components.front-end.product-page');
+Route::view('contact-page', 'components.front-end.contact-page');
 
 
 
 
 
 // Dashboard All Page Viwe Route start
-// user view page 
+// user view page
 Route::view('/userProfile', 'components.back-end.user-profile');
 
-// User API Route 
+// User API Route
 Route::post('/user-update', [UserController::class, 'UpdateProfile'])->middleware('auth:sanctum');
 Route::get('/userlogout', [UserController::class, 'UserLogout'])->middleware('auth:sanctum');
 
