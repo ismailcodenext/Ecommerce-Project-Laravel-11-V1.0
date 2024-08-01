@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lexend:wght@100..900&display=swap");
+
+/* ====================
+  Reset Default CSS Start
+  ==================== */
+
+:root {
+  --primary-font: "Lexend", sans-serif;
+  --secondary-font: "DM Sans", sans-serif;
+  --primary-color: #be2742;
+  --secondary-color: #000000;
+  --accent-1: #e66a74;
+  --accent-2: #249b7d;
+  --bg: #fee1db;
+  --white: #ffffff;
+  --Gradient: linear-gradient(180deg, #e66a74 0%, #be2742 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+/*====================
+Reset Default CSS End
+====================*/
+
+/* Hero Start */
+
+#hero {
+  /* background: linear-gradient(#e66a74, #be2742); */
+  background: #f1838f;
+  padding: 120px 0;
+}
+
+.hero_content {
+  position: relative;
+}
+
+.hero_content h1 {
+  font-family: var(--primary-font);
+  font-size: 3.5em;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.hero_left_shape,
+.hero_right_shape {
+  position: absolute;
+  width: 120px;
+}
+
+.hero_left_shape img,
+.hero_right_shape img {
+  width: 100%;
+}
+
+.hero_left_shape {
+  top: 30px;
+  left: 0;
+}
+
+.hero_right_shape {
+  bottom: 30px;
+  right: 0;
+}
+
+@media screen and (max-width: 990px) {
+  .hero_content h1 {
+    font-size: 2.6em;
+  }
+
+  .hero_left_shape,
+  .hero_right_shape {
+    display: none;
+  }
+}
+
+/* Hero End */
+
+/* About End */
+
+#about {
+  padding: 80px 0;
+}
+
+.about_content img {
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+
+.about_content h1 {
+  font-family: var(--primary-font);
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.about_content p {
+  font-family: var(--secondary-font);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--secondary-color);
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+  .about_content h1 {
+    font-size: 2.4em;
+  }
+
+  .about_content img {
+    margin-top: 40px;
+  }
+}
+
+/* About End */
+
+/* Our Journey Start */
+
+#journey {
+  padding-bottom: 80px;
+}
+
+.journey_content h1 {
+  font-family: var(--primary-font);
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.journey_content p {
+  font-family: var(--secondary-font);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--secondary-color);
+  text-align: justify;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 990px) {
+  .journey_content h1 {
+    font-size: 2.4em;
+  }
+}
+
+/* Our Journey End */
+
+/* CEO Start */
+
+#ceo {
+  padding-bottom: 80px;
+}
+
+#owner {
+  padding-bottom: 80px;
+}
+
+.ceo_content h1 {
+  font-family: var(--primary-font);
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.ceo_content h1 span {
+  color: var(--primary-color);
+}
+
+.ceo_content p {
+  font-family: var(--secondary-font);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--secondary-color);
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.ceo_content img {
+  width: 100%;
+}
+
+@media screen and (max-width: 990px) {
+  .ceo_content h1 {
+    font-size: 2.4em;
+  }
+
+  .ceo_content img {
+    margin-top: 40px;
+  }
+}
+
+/* CEO End */
+
+/* Mission Start */
+
+#mission {
+  padding-bottom: 80px;
+}
+
+.mission_item h2 {
+  position: relative;
+  display: inline-block;
+  font-family: var(--primary-font);
+  font-size: 2.4em;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.mission_item h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50%;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.mission_item p {
+  font-family: var(--secondary-font);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--secondary-color);
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 990px) {
+  .mission_item h1 {
+    font-size: 2.4em;
+  }
+
+  .mission_item {
+    margin-top: 10px;
+  }
+}
+
+/* Mission End */
