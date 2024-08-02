@@ -23,6 +23,14 @@ class ProductController extends Controller
     }
 
 
+    public function show($id)
+    {
+        $product = Product::find($id);
+        return view('components.front-end.single-product-page', compact('product'));
+    }
+
+
+
 
     public function ProductList()
     {

@@ -105,8 +105,8 @@
           <div class="inner-location-email-intro">
             <div class="icons">
               <a href="#"
-                >৳ 0.00 <i class="fa-solid fa-cart-shopping"></i
-                ><span class="cart-count">1</span></a
+                ><i class="fa-solid fa-cart-shopping"></i
+                ><span class="cart-count">{{ count((array) session('cart')) }}</span></a
               >
             </div>
           </div>

@@ -82,8 +82,6 @@
 
 <!-- Products End -->
 
-
-
 <script>
   ProductItem();
   async function ProductItem() {
@@ -99,7 +97,7 @@
       res.data['ProductFront_Data'].forEach((item, i) => {
         let EachItem = `
                    <div class="col-lg-3 col-md-4 col-6 mb-4 d-flex align-items-stretch">
-            <a href="#" class="card h-100">
+            <a href="api/product/${item['id']}" class="card h-100">
               <div class="card-img-top">
                 <img src="${item['img_url']}" alt="Product Image" />
               </div>

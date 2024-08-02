@@ -16,6 +16,7 @@
 {{--    product css --}}
 
     <link rel="stylesheet" href="{{asset('front-end/assets/css/products.css')}}" />
+    <link rel="stylesheet" href="{{asset('front-end/assets/css/single-product.css')}}" />
     <link rel="stylesheet" href="{{asset('front-end/assets/css/nouislider.css')}}" />
 
     <!-- Fontawesome Kit About CSS -->
@@ -47,6 +48,9 @@
   <script src="{{asset('front-end/assets/js/filter.js')}}"></script>
   <script src="{{asset('front-end/assets/js/fontawesome.js')}}"></script>
   <script src="{{asset('front-end/assets/js/back-to-btn.js')}}"></script>
+  <script src="{{asset('front-end/assets/js/seller-info-tab.js')}}"></script>
+  <script src="{{asset('front-end/assets/js/product-details-slider.js')}}"></script>
+  <script src="{{asset('front-end/assets/js/product-details-share.js')}}"></script>
 </body>
 
 

@@ -48,6 +48,8 @@ Route::post("/delete-brand", [BrandController::class, 'BrandDelete'])->middlewar
 
 Route::get("/product-Data", [ProductController::class, 'index']);
 
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
 
 Route::get("/product-list", [ProductController::class, 'ProductList'])->middleware('auth:sanctum');
 Route::post("/create-product", [ProductController::class, 'ProductCreate'])->middleware('auth:sanctum');
